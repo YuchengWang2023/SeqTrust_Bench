@@ -1,0 +1,20 @@
+env: SeqTrust_Bench
+
+script: ../../Tools/DNA-Diffusion/benchmark_DNADiffusion.py
+
+work_dir: ../../Tools/DNA-Diffusion
+
+
+params:
+  # ---- Runtime ----
+  device_id: "2"
+  num_gpus: 1
+  
+  # ---- Datasets: each entry is merged with the params above and triggers one run ----
+  data:
+
+    # Complete CellType experiments
+    - name: EpisomalMPRA_Complete
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_complete_starting_sequences_DNADiffusion.tsv
+      saved_data_path: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_Complete/DNADiffusion/complete_training_data.pkl
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_Complete/DNADiffusion
