@@ -147,7 +147,7 @@ define the HyenaDNA locations:
   downloaded weights directory) and ``hyenadna_path`` (path to the cloned repo)
 
 DNA-Diffusion
---------------
+~~~~~~~~~~~~~~
 
 `DNA-Diffusion <https://github.com/pinellolab/DNA-Diffusion>`_ uses
 `uv <https://github.com/astral-sh/uv>`_ as its preferred package and project
