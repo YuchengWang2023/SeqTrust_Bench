@@ -33,7 +33,7 @@ Pass the path of the wheel to ``setup_env.sh``:
 
 The script will automatically:
 
-1. Create the ``SeqEval_Bench`` conda environment (Python 3.12.13)
+1. Create the ``SeqTrust_Bench`` conda environment (Python 3.12.13)
 2. Install all dependencies from ``requirements.txt``
 3. Install FlashAttention 2.8.1 from the wheel you provided
 4. Verify the installation
@@ -42,7 +42,7 @@ When it finishes, activate the environment with:
 
 .. code-block:: bash
 
-   conda activate SeqEval_Bench
+   conda activate SeqTrust_Bench
 
 Manual setup
 ~~~~~~~~~~~~
@@ -53,7 +53,7 @@ If you prefer to install step by step:
 
    # 1. Create and activate the conda environment
    conda env create -f environment.yml
-   conda activate SeqEval_Bench
+   conda activate SeqTrust_Bench
 
    # 2. Install the Python dependencies
    pip install -r requirements.txt
