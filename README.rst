@@ -146,6 +146,23 @@ define the HyenaDNA locations:
 - ``Tools/TACO/reglm_src/reglm/lightning.py`` — ``ckpt_dir`` (path to the
   downloaded weights directory) and ``hyenadna_path`` (path to the cloned repo)
 
+DNA-Diffusion
+--------------
+
+`DNA-Diffusion <https://github.com/pinellolab/DNA-Diffusion>`_ uses
+`uv <https://github.com/astral-sh/uv>`_ as its preferred package and project
+manager. Install ``uv`` and download the upstream project configuration
+(including ``pyproject.toml`` and ``uv.lock``) by following the official
+installation guide:
+
+https://github.com/pinellolab/DNA-Diffusion#installation
+
+``Tools/DNA-Diffusion/`` in this repository stores only the model code modified
+to bring DNA-Diffusion into the unified benchmark framework. It does not
+replace the upstream checkout or its ``uv`` environment. The benchmark entry
+point ``benchmark_DNADiffusion.py`` launches training with ``uv run``, so that
+environment must already be in place.
+
 Usage
 -----
 
