@@ -1,0 +1,7 @@
+name: SeqTrust_Bench
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12.13
+  - pip
