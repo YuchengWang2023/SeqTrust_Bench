@@ -1,0 +1,381 @@
+env: SeqEval_Bench
+
+script: ../../Tools/Ctrl-DNA/ctrl_dna/benchmark_CtrlDNA.py
+
+work_dir: ../../Tools/Ctrl-DNA/ctrl_dna
+
+
+params:
+  # ---- Runtime ----
+  device_id: 1
+
+  # ---- Ctrl-DNA hyperparameters ----
+  max_len: 200
+  lambda_lr: 0.0003
+  lambda_value: [0.5, 0.5]
+  tfbs_ratio: 0.1
+  oracle_type: paired
+  seed: 0
+  lr: 0.0001
+  batch_size: 256
+  max_iter: 100
+  epoch: 5
+
+  meme_path: /home/wangyucheng/projects/SeqEval_Bench_Data/Additional_data/human/20260123061938_JASPAR2026_combined_matrices_695344.meme
+  ppms_path: /home/wangyucheng/projects/SeqEval_Bench_Data/Additional_data/human/selected_ppms.csv
+
+  # ---- Datasets: each entry is merged with the params above and triggers one run ----
+  data:
+
+
+    # # Complete CellType experiments
+    # - name: DNase_GM12878_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_complete_starting_sequences.tsv
+    #   task: "functional_score_GM12878"
+    #   cell_types: ["functional_score_GM12878", "functional_score_HepG2", "functional_score_K562"]
+    #   score_min: [0.0, 0.0, 0.0]
+    #   score_max: [4.656977, 5.285814, 6.625859]
+    #   whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/Ctrl-DNA/complete/DNase_GM12878__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_GM12878_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_complete_alphagenome/best_loss_epoch1_loss0.3319.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_complete_alphagenome/best_loss_epoch0_loss0.3194.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_complete_alphagenome/best_loss_epoch2_loss0.3486.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: DNase_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_complete_starting_sequences.tsv
+    #   task: "functional_score_HepG2"
+    #   cell_types: ["functional_score_GM12878", "functional_score_HepG2", "functional_score_K562"]
+    #   score_min: [0.0, 0.0, 0.0]
+    #   score_max: [4.656977, 5.285814, 6.625859]
+    #   whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/Ctrl-DNA/complete/DNase_HepG2__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_HepG2_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_complete_alphagenome/best_loss_epoch1_loss0.3319.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_complete_alphagenome/best_loss_epoch0_loss0.3194.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_complete_alphagenome/best_loss_epoch2_loss0.3486.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: DNase_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_complete_starting_sequences.tsv
+    #   task: "functional_score_K562"
+    #   cell_types: ["functional_score_GM12878", "functional_score_HepG2", "functional_score_K562"]
+    #   score_min: [0.0, 0.0, 0.0]
+    #   score_max: [4.656977, 5.285814, 6.625859]
+    #   whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/Ctrl-DNA/complete/DNase_K562__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_K562_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_complete_alphagenome/best_loss_epoch1_loss0.3319.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_complete_alphagenome/best_loss_epoch0_loss0.3194.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_complete_alphagenome/best_loss_epoch2_loss0.3486.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: EpisomalMPRA_A549_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_complete_starting_sequences.tsv
+    #   task: "functional_score_A549"
+    #   cell_types: ["functional_score_A549", "functional_score_HepG2", "functional_score_K562"]
+    #   score_min: [-4.502754, -6.227728, -5.609770]
+    #   score_max: [7.907343, 8.589416, 9.838334]
+    #   # whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/Ctrl-DNA/complete/EpisomalMPRA_A549__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_A549_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_complete_alphagenome/best_loss_epoch4_loss0.1383.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_complete_alphagenome/best_loss_epoch1_loss0.1986.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_complete_alphagenome/best_loss_epoch1_loss0.2687.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: EpisomalMPRA_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_complete_starting_sequences.tsv
+    #   task: "functional_score_HepG2"
+    #   cell_types: ["functional_score_A549", "functional_score_HepG2", "functional_score_K562"]
+    #   score_min: [-4.502754, -6.227728, -5.609770]
+    #   score_max: [7.907343, 8.589416, 9.838334]
+    #   # whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/Ctrl-DNA/complete/EpisomalMPRA_HepG2__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_HepG2_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_complete_alphagenome/best_loss_epoch4_loss0.1383.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_complete_alphagenome/best_loss_epoch1_loss0.1986.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_complete_alphagenome/best_loss_epoch1_loss0.2687.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: EpisomalMPRA_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_complete_starting_sequences.tsv
+    #   task: "functional_score_K562"
+    #   cell_types: ["functional_score_A549", "functional_score_HepG2", "functional_score_K562"]
+    #   score_min: [-4.502754, -6.227728, -5.609770]
+    #   score_max: [7.907343, 8.589416, 9.838334]
+    #   # whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/Ctrl-DNA/complete/EpisomalMPRA_K562__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_K562_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_complete_alphagenome/best_loss_epoch4_loss0.1383.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_complete_alphagenome/best_loss_epoch1_loss0.1986.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_complete_alphagenome/best_loss_epoch1_loss0.2687.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: LentiMPRA_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_complete_starting_sequences.tsv
+    #   task: "functional_score_HepG2"
+    #   cell_types: ["functional_score_HepG2", "functional_score_K562", "functional_score_WTC11"]
+    #   score_min: [-3.338000, -3.527000, -5.263000]
+    #   score_max: [5.036000, 3.273000, 6.657000]
+    #   # whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/Ctrl-DNA/complete/LentiMPRA_HepG2__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_HepG2_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_complete_alphagenome/best_loss_epoch19_loss0.1518.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_complete_alphagenome/best_loss_epoch2_loss0.0742.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_complete_alphagenome/best_loss_epoch1_loss0.5075.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: LentiMPRA_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_complete_starting_sequences.tsv
+    #   task: "functional_score_K562"
+    #   cell_types: ["functional_score_HepG2", "functional_score_K562", "functional_score_WTC11"]
+    #   score_min: [-3.338000, -3.527000, -5.263000]
+    #   score_max: [5.036000, 3.273000, 6.657000]
+    #   # whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/Ctrl-DNA/complete/LentiMPRA_K562__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_K562_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_complete_alphagenome/best_loss_epoch19_loss0.1518.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_complete_alphagenome/best_loss_epoch2_loss0.0742.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_complete_alphagenome/best_loss_epoch1_loss0.5075.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+
+    # - name: LentiMPRA_WTC11_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_complete_starting_sequences.tsv
+    #   task: "functional_score_WTC11"
+    #   cell_types: ["functional_score_HepG2", "functional_score_K562", "functional_score_WTC11"]
+    #   score_min: [-3.338000, -3.527000, -5.263000]
+    #   score_max: [5.036000, 3.273000, 6.657000]
+    #   # whether_softplus: True
+    #   gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/Ctrl-DNA/complete/LentiMPRA_WTC11__tfbs_freq_all.csv
+    #   out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_WTC11_Complete/CtrlDNA
+    #   predict_model: alphagenome
+    #   predict_model_ckpt:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_complete_alphagenome/best_loss_epoch19_loss0.1518.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_complete_alphagenome/best_loss_epoch2_loss0.0742.pt
+    #     - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_complete_alphagenome/best_loss_epoch1_loss0.5075.pt
+    #   predict_model_config:
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+    #     - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    # Offline CellType experiments
+    - name: DNase_GM12878_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_offline_starting_sequences.tsv
+      task: "functional_score_GM12878"
+      cell_types: ["functional_score_GM12878", "functional_score_HepG2", "functional_score_K562"]
+      score_min: [0.0, 0.0, 0.0]
+      score_max: [4.656977, 5.285814, 6.625859]
+      whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/Ctrl-DNA/offline/DNase_GM12878__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_GM12878_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_offline_alphagenome/best_loss_epoch1_loss0.2384.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_offline_alphagenome/best_loss_epoch0_loss0.1140.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_offline_alphagenome/best_loss_epoch0_loss0.1932.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: DNase_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_offline_starting_sequences.tsv
+      task: "functional_score_HepG2"
+      cell_types: ["functional_score_GM12878", "functional_score_HepG2", "functional_score_K562"]
+      score_min: [0.0, 0.0, 0.0]
+      score_max: [4.656977, 5.285814, 6.625859]
+      whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/Ctrl-DNA/offline/DNase_HepG2__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_HepG2_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_offline_alphagenome/best_loss_epoch1_loss0.2384.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_offline_alphagenome/best_loss_epoch0_loss0.1140.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_offline_alphagenome/best_loss_epoch0_loss0.1932.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: DNase_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_offline_starting_sequences.tsv
+      task: "functional_score_K562"
+      cell_types: ["functional_score_GM12878", "functional_score_HepG2", "functional_score_K562"]
+      score_min: [0.0, 0.0, 0.0]
+      score_max: [4.656977, 5.285814, 6.625859]
+      whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/Ctrl-DNA/offline/DNase_K562__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_K562_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_offline_alphagenome/best_loss_epoch1_loss0.2384.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_offline_alphagenome/best_loss_epoch0_loss0.1140.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_offline_alphagenome/best_loss_epoch0_loss0.1932.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: EpisomalMPRA_A549_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_offline_starting_sequences.tsv
+      task: "functional_score_A549"
+      cell_types: ["functional_score_A549", "functional_score_HepG2", "functional_score_K562"]
+      score_min: [-4.502754, -6.227728, -5.609770]
+      score_max: [7.907343, 8.589416, 9.838334]
+      # whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/Ctrl-DNA/offline/EpisomalMPRA_A549__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_A549_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_offline_alphagenome/best_loss_epoch2_loss0.0689.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_offline_alphagenome/best_loss_epoch3_loss0.1349.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_offline_alphagenome/best_loss_epoch3_loss0.1675.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: EpisomalMPRA_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_offline_starting_sequences.tsv
+      task: "functional_score_HepG2"
+      cell_types: ["functional_score_A549", "functional_score_HepG2", "functional_score_K562"]
+      score_min: [-4.502754, -6.227728, -5.609770]
+      score_max: [7.907343, 8.589416, 9.838334]
+      # whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/Ctrl-DNA/offline/EpisomalMPRA_HepG2__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_HepG2_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_offline_alphagenome/best_loss_epoch2_loss0.0689.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_offline_alphagenome/best_loss_epoch3_loss0.1349.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_offline_alphagenome/best_loss_epoch3_loss0.1675.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: EpisomalMPRA_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_offline_starting_sequences.tsv
+      task: "functional_score_K562"
+      cell_types: ["functional_score_A549", "functional_score_HepG2", "functional_score_K562"]
+      score_min: [-4.502754, -6.227728, -5.609770]
+      score_max: [7.907343, 8.589416, 9.838334]
+      # whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/Ctrl-DNA/offline/EpisomalMPRA_K562__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_K562_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_offline_alphagenome/best_loss_epoch2_loss0.0689.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_offline_alphagenome/best_loss_epoch3_loss0.1349.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_offline_alphagenome/best_loss_epoch3_loss0.1675.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: LentiMPRA_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_offline_starting_sequences.tsv
+      task: "functional_score_HepG2"
+      cell_types: ["functional_score_HepG2", "functional_score_K562", "functional_score_WTC11"]
+      score_min: [-3.338000, -3.527000, -5.263000]
+      score_max: [5.036000, 3.273000, 6.657000]
+      # whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/Ctrl-DNA/offline/LentiMPRA_HepG2__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_HepG2_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_offline_alphagenome/best_loss_epoch18_loss0.1153.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_offline_alphagenome/best_loss_epoch1_loss0.0593.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_offline_alphagenome/best_loss_epoch0_loss0.4039.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: LentiMPRA_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_offline_starting_sequences.tsv
+      task: "functional_score_K562"
+      cell_types: ["functional_score_HepG2", "functional_score_K562", "functional_score_WTC11"]
+      score_min: [-3.338000, -3.527000, -5.263000]
+      score_max: [5.036000, 3.273000, 6.657000]
+      # whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/Ctrl-DNA/offline/LentiMPRA_K562__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_K562_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_offline_alphagenome/best_loss_epoch18_loss0.1153.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_offline_alphagenome/best_loss_epoch1_loss0.0593.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_offline_alphagenome/best_loss_epoch0_loss0.4039.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+
+    - name: LentiMPRA_WTC11_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_offline_starting_sequences.tsv
+      task: "functional_score_WTC11"
+      cell_types: ["functional_score_HepG2", "functional_score_K562", "functional_score_WTC11"]
+      score_min: [-3.338000, -3.527000, -5.263000]
+      score_max: [5.036000, 3.273000, 6.657000]
+      # whether_softplus: True
+      gt_freq_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/Ctrl-DNA/offline/LentiMPRA_WTC11__tfbs_freq_all.csv
+      out_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_WTC11_Offline/CtrlDNA
+      predict_model: alphagenome
+      predict_model_ckpt:
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_offline_alphagenome/best_loss_epoch18_loss0.1153.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_offline_alphagenome/best_loss_epoch1_loss0.0593.pt
+        - /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_offline_alphagenome/best_loss_epoch0_loss0.4039.pt
+      predict_model_config:
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors
+        - /home/wangyucheng/projects/SeqEval_Bench_ExternalSource/huggingface/gtca/alphagenome_pytorch/model_all_folds.safetensors

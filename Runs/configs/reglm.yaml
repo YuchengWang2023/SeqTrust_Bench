@@ -1,0 +1,290 @@
+env: SeqEval_Bench
+
+script: ../../Tools/regLM/benchmark_regLM.py
+
+work_dir: ../../Tools/regLM
+
+params:
+  # ---- Runtime ----
+  device_id: 7
+
+  # ---- Sequence / task ----
+  max_new_tokens: 200
+  batch_size: 512
+  sample_number: 256
+  
+  # ---- regLM hyperparameters ----
+  max_num: 2000000
+  max_epochs: 20
+  val_check_interval: 10
+  top_k: 2
+
+
+  # ---- Datasets: each entry is merged with the params above and triggers one run ----
+  data:
+
+    # # Complete SingleCell and CellType experiments
+    # - name: DNase_GM12878_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/DNase_GM12878_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+    # - name: DNase_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/DNase_HepG2_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+
+    # - name: DNase_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/DNase_K562_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+
+    # - name: EpisomalMPRA_A549_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_A549_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+    # - name: EpisomalMPRA_HCT116_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HCT116/HCT116_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_HCT116_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+
+    # - name: EpisomalMPRA_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_HepG2_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+    # - name: EpisomalMPRA_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_K562_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+    # - name: EpisomalMPRA_SKNSH_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/SKNSH/SKNSH_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_SKNSH_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+
+    # - name: LentiMPRA_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/LentiMPRA_HepG2_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+    # - name: LentiMPRA_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/LentiMPRA_K562_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+    # - name: LentiMPRA_WTC11_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_complete.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/LentiMPRA_WTC11_Complete/regLM
+    #   label_len: 1
+    #   prompt: "3"
+
+
+    # - name: DNase_GM12878_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_GM12878_Complete/regLM
+    #   label_len: 3
+    #   prompt: "300"
+
+
+    # - name: DNase_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_HepG2_Complete/regLM
+    #   label_len: 3
+    #   prompt: "030"
+
+    # - name: DNase_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_K562_Complete/regLM
+    #   label_len: 3
+    #   prompt: "003"
+
+
+    # - name: EpisomalMPRA_A549_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_A549_Complete/regLM
+    #   label_len: 3
+    #   prompt: "300"
+
+
+    # - name: EpisomalMPRA_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_HepG2_Complete/regLM
+    #   label_len: 3
+    #   prompt: "030"
+
+    # - name: EpisomalMPRA_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_K562_Complete/regLM
+    #   label_len: 3
+    #   prompt: "003"
+
+
+    # - name: LentiMPRA_HepG2_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_HepG2_Complete/regLM
+    #   label_len: 3
+    #   prompt: "300"
+
+
+    # - name: LentiMPRA_K562_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_K562_Complete/regLM
+    #   label_len: 3
+    #   prompt: "030"
+
+    # - name: LentiMPRA_WTC11_Complete
+    #   data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_complete_starting_sequences_regLM.tsv
+    #   save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_WTC11_Complete/regLM
+    #   label_len: 3
+    #   prompt: "003"
+
+
+    # Offline SingleCell and CellType experiments
+    - name: DNase_GM12878_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/GM12878/GM12878_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/DNase_GM12878_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+    - name: DNase_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/HepG2/HepG2_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/DNase_HepG2_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+
+    - name: DNase_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/K562/K562_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/DNase_K562_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+
+    - name: EpisomalMPRA_A549_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/A549/A549_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_A549_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+    - name: EpisomalMPRA_HCT116_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HCT116/HCT116_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_HCT116_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+
+    - name: EpisomalMPRA_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/HepG2/HepG2_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_HepG2_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+    - name: EpisomalMPRA_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/K562/K562_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_K562_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+    - name: EpisomalMPRA_SKNSH_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/SKNSH/SKNSH_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/EpisomalMPRA_SKNSH_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+
+    - name: LentiMPRA_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/HepG2/HepG2_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/LentiMPRA_HepG2_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+    - name: LentiMPRA_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/K562/K562_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/LentiMPRA_K562_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+    - name: LentiMPRA_WTC11_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/WTC11/WTC11_offline.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/SingleCell/LentiMPRA_WTC11_Offline/regLM
+      label_len: 1
+      prompt: "3"
+
+
+    - name: DNase_GM12878_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_GM12878_Offline/regLM
+      label_len: 3
+      prompt: "300"
+
+
+    - name: DNase_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_HepG2_Offline/regLM
+      label_len: 3
+      prompt: "030"
+
+    - name: DNase_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/DNase/CellType/DNase_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/DNase_K562_Offline/regLM
+      label_len: 3
+      prompt: "003"
+
+
+    - name: EpisomalMPRA_A549_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_A549_Offline/regLM
+      label_len: 3
+      prompt: "300"
+
+
+    - name: EpisomalMPRA_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_HepG2_Offline/regLM
+      label_len: 3
+      prompt: "030"
+
+    - name: EpisomalMPRA_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/EpisomalMPRA/CellType/EpisomalMPRA_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/EpisomalMPRA_K562_Offline/regLM
+      label_len: 3
+      prompt: "003"
+
+
+    - name: LentiMPRA_HepG2_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_HepG2_Offline/regLM
+      label_len: 3
+      prompt: "300"
+
+
+    - name: LentiMPRA_K562_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_K562_Offline/regLM
+      label_len: 3
+      prompt: "030"
+
+    - name: LentiMPRA_WTC11_Offline
+      data_path: /home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_offline_starting_sequences_regLM.tsv
+      save_dir: /home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_WTC11_Offline/regLM
+      label_len: 3
+      prompt: "003"
+
+
+
