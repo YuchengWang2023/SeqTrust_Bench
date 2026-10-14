@@ -1,0 +1,6 @@
+_target_: src.dnadiffusion.data.dataloader.get_dataset_for_sampling
+data_path: "/home/wangyucheng/projects/SeqEval_Bench_Data/LentiMPRA/CellType/LentiMPRA_offline_starting_sequences_DNADiffusion.tsv"
+saved_data_path: "/home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_Offline/DNADiffusion/offline_training_data.pkl"
+load_saved_data: True
+debug: False
+cell_types: null  # null means all cell types, or specify like ["K562", "HepG2"]

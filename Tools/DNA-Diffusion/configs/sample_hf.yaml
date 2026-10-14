@@ -1,0 +1,5 @@
+defaults:
+    - model: unet_pretrained
+    - data: sampling
+    - diffusion: default
+    - sampling: default_hf

@@ -1,0 +1,6 @@
+checkpoint_path: "/home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_Offline/DNADiffusion/model_epoch1307_step448644_valloss_0.0356.pt"
+# checkpoint_path: "checkpoints/DNA-Diffusion.pt"
+sample_batch_size: 32
+number_of_samples: 256
+guidance_scale: 7.0
+save_dir: "/home/wangyucheng/projects/SeqEval_Bench_Results/CellType/LentiMPRA_Offline/DNADiffusion"
